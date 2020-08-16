@@ -20,9 +20,14 @@ This dataset was processed down to the daily confirmed cases and daily confirmed
 We only got a score of 62% accuracy in picking the 2nd difference of the confirmed cases, however, it is important to note that based on the confusion matrix, the model might still be useful.
 #### <center>The Florida Next Day Model</center>
 ![Florida Model's Confusion Matrix alt ><](assets/fl_conf.png)
+
 It is possible that the reason that a next day model, despite the virus having an incubation period of 2-12 days, might perform like this would be that many people might begin tweeting about feeling ill, and then going to get tested, and then they get their results the next day(s). While waiting for the results, they might begin tweeting more about the virus.
 <br>
 <br>
 It is also important to note that the majority of the errors are false positives; the model predicted that the 2nd difference would be positive, when in fact, it was negative. Great! Couldn't be happier to be wrong! However of the 34 day forecasting window, only 3 false negatives, or cases when we predicted the 2nd difference would be negative, and it was positive. That's less than 9% predictions under rating the coming change in the 2nd difference.
 
-
+### OLS Regression
+#### Performance
+ This model factored in tweet sentiment standard deviation in addition to mean values, at multiple time lags. While it achieved modest R2 values when training on the entire dataset, cross-validation rendered the model worse than the null model.
+ <br>
+ It may be the case that there simply isn't enough information in twitter sentiment to accurately predict a continous variable like single day change in covid cases per capita. While incorporating sentiment at multiple time lags did improve the model, these features may be best used as a small part of a more holistic model.
