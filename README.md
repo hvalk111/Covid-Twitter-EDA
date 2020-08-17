@@ -30,4 +30,7 @@ It is also important to note that the majority of the errors are false positives
 #### Performance
  This model factored in tweet sentiment standard deviation in addition to mean values, at multiple time lags. While it achieved modest R2 values when training on the entire dataset, cross-validation rendered the model worse than the null model.
  <br>
+ <br>
  It may be the case that there simply isn't enough information in twitter sentiment to accurately predict a continous variable like single day change in covid cases per capita. While incorporating sentiment at multiple time lags did improve the model, these features may be best used as a small part of a more holistic model.
+ 
+ #### [Slide Deck](COVID-19_Rates_via_Sentiment_Analysis_of_Tweets.pptx)
